@@ -1,0 +1,17 @@
+#def onsilence()
+#        system("cat /home/wrur/ls.ls")
+#end
+
+stingin = input.http("http://wrur.ur.rochester.edu:8000/thestingmon")
+
+stingsafe = mksafe(stingin)
+
+#stingsafe = blank.detect({log.important("silence!!!")}, stingsafe)
+stingsafe = blank.detect({process.run("./send-silence-email.sh")}, stingsafe)
+
+
+#silent = ref(false)
+#stingsafe = blank.detect(on_noise={silent := false}, {silent := true}, stingsafe)
+#thread.run(every=1., {log.important("Source is silent: #{!silent}")})
+
+output.dummy(stingsafe)
